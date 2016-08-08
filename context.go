@@ -846,6 +846,9 @@ func (c *Context) SetWs(conn *websocket.Conn) {
 
 // 关闭websocket
 func (c *Context) WsClose() error {
+	if c.socket == nil {
+		return nil
+	}
 	return c.socket.Close()
 }
 
